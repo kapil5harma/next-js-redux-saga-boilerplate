@@ -1,8 +1,8 @@
-import { all, call, delay, put, take, takeLatest } from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
 import es6promise from 'es6-promise';
 import 'isomorphic-unfetch';
 
-import { Types, Creators } from './actions';
+import { Creators } from './actions';
 
 es6promise.polyfill();
 

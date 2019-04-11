@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const pad = n => (n < 10 ? `0${n}` : n);
 
@@ -30,5 +31,10 @@ function Clock(props) {
     </div>
   );
 }
+
+Clock.propTypes = {
+  lastUpdate: PropTypes.string,
+  light: PropTypes.bool
+};
 
 export default Clock;

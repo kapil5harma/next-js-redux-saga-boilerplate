@@ -1,16 +1,18 @@
 import Link from 'next/link';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Counter from './counter';
 import Clock from './clock';
 
 function Page(props) {
   const { error, linkTo, NavigateTo, placeholderData, title } = props;
-  let lastUpdate, light;
-  if (props && props.counter) {
-    lastUpdate = props.counter.lastUpdate;
-    light = props.counter.light;
-  }
+  let lastUpdate;
+  let light;
+  // if (props && props.counter) {
+  //   lastUpdate = props.counter.lastUpdate;
+  //   light = props.counter.light;
+  // }
 
   return (
     <div>
@@ -31,5 +33,13 @@ function Page(props) {
     </div>
   );
 }
+
+Page.propTypes = {
+  error: PropTypes.object,
+  linkTo: PropTypes.string,
+  NavigateTo: PropTypes.string,
+  placeholderData: PropTypes.string,
+  title: PropTypes.string
+};
 
 export default connect(state => state)(Page);

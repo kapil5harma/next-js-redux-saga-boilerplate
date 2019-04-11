@@ -1,14 +1,12 @@
-import { Types } from './actions';
 import { createReducer } from 'reduxsauce';
+import { Types } from './actions';
 
 export const INITIAL_STATE = {
   someData: null
 };
 
 // ****************************** failure ******************************
-const failure = (state = INITIAL_STATE, action) => {
-  return { ...state, ...{ error: action.error } };
-};
+const failure = (state = INITIAL_STATE, action) => ({ ...state, ...{ error: action.error } });
 // _____________________________________________________________________
 
 // Define Handlers

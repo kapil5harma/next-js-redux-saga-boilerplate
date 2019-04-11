@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import PropTypes from 'prop-types';
 import { Creators } from '../store/actions';
-import counter from '../pages/counter';
-// import { increment, decrement, reset } from '../store/actions';
 
 class Counter extends Component {
   increment = () => {
-    this.props.dispatch(Creators.increment());
+    const { dispatch } = this.props;
+    dispatch(Creators.increment());
   };
 
   decrement = () => {
-    this.props.dispatch(Creators.decrement());
+    const { dispatch } = this.props;
+    dispatch(Creators.decrement());
   };
 
   reset = () => {
-    this.props.dispatch(Creators.reset());
+    const { dispatch } = this.props;
+    dispatch(Creators.reset());
   };
 
   render() {
     const { count } = this.props;
+
     return (
       <div>
         <style jsx>{`
@@ -30,15 +32,28 @@ class Counter extends Component {
         <h1>
           Count: <span>{count}</span>
         </h1>
-        <button onClick={this.increment}>+1</button>
-        <button onClick={this.decrement}>-1</button>
-        <button onClick={this.reset}>Reset</button>
+        <button type='button' onClick={this.increment}>
+          +1
+        </button>
+        <button type='button' onClick={this.decrement}>
+          -1
+        </button>
+        <button type='button' onClick={this.reset}>
+          Reset
+        </button>
       </div>
     );
   }
 }
 
+Counter.propTypes = {
+  dispatch: PropTypes.func,
+  count: PropTypes.number
+};
+
 const mapStateToProps = state => {
+  // console.log('state: ', state);
+  console.log('');
   return {
     count: state.counter.count
   };
