@@ -1,4 +1,4 @@
-## Music Pandit
+## Boilerplate for Next - Redux - Saga
 
 Steps to get started:
 
